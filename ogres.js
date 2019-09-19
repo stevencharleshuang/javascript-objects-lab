@@ -26,6 +26,7 @@
  * Would it be helpful to create another object to control and keep track of other data that isn't specifically about the ogre or the adventurer? Such as a game object, perhaps?
  */
 
+// Adventurer Object
 const adventurer = {
   name: '',
   hp: 1000,
@@ -33,29 +34,39 @@ const adventurer = {
   attack() {
     // static value
     console.log('adventurer attacks!');
+    
     ogre.hp -= this.ap;
+    
     console.log(`ogre's remaining health points: `, ogre.hp);
+    
     atPlay = ogre;
   }
 }
 
+// Ogre Object
 const ogre = {
   hp: 1000,
   maxAP: 200,
   attack() {
     // random value
     console.log('ogre attacks!');
+    
     let ap = Math.floor(Math.random() * Math.floor(this.maxAP));
+    
     adventurer.hp -= ap; 
+    
     console.log(`adventurer's remaining health points: `, adventurer.hp);
+    
     atPlay = adventurer;
   }
 }
 
+// Game Mechanics
 let atPlay = adventurer;
 
 while (adventurer.hp > 0 && ogre.hp > 0) {
   atPlay.attack();
 }
 
+// Announce Winner
 adventurer.hp > 0 ? console.log('adventurer won!!!') : console.log('ogre won!!!');
