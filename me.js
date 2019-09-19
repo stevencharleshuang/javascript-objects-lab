@@ -16,3 +16,19 @@
  * Note that the key has spaces, therefore you cannot use dot notation.
  * Print the value of "place of residence".
  */
+
+let me = {}
+
+me.name = "Kristyn";
+me.age = 42;
+me.email = "kristyn@foo.bar";
+
+console.log(me.name);
+
+me['age'] = 43;
+
+console.log(me.age);
+
+me['place of residence'] = 'Staten Island'
+
+console.log(me['place of residence']);
